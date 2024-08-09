@@ -14,6 +14,19 @@ const db = new pg.Client({
 });
 
 db.connect();
+
+db.query(`CREATE TABLE items (
+	id SERIAL PRIMARY KEY NOT NULL,
+	title VARCHAR(100) NOT NULL,
+  list_id SERIAL NOT NULL
+);`);
+
+
+db.query(`CREATE TABLE listType (
+	id SERIAL PRIMARY KEY NOT NULL,
+	type VARCHAR(20) NOT NULL
+);`);
+
 let count = 1;
 
 async function getItems(listID) {
