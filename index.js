@@ -48,13 +48,26 @@ app.post("/add", async (req, res) => {
 
   const item = req.body.newItem;
   const listType = await getListTitles();
-  listType.forEach(async (element) => {
-    if (element.id === count) {
-      await db.query("INSERT INTO items (title, list_id) VALUES ($1, $2)", [item, element.id]);
-      res.redirect("/");
-    }
-  });
-
+  if (item.length === 0) {
+    listType.forEach(async (element) => {
+      if (element.id === count) {
+        const result = await getItems(element.id);
+        res.render("index.ejs", {
+          listTitle: "Cannot create an empty item!",
+          listItems: result,
+        });
+      }
+    });
+  }
+  else {
+    const listType = await getListTitles();
+    listType.forEach(async (element) => {
+      if (element.id === count) {
+        await db.query("INSERT INTO items (title, list_id) VALUES ($1, $2)", [item, element.id]);
+        res.redirect("/");
+      }
+    });
+  }
 
 });
 
