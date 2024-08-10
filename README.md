@@ -2,6 +2,7 @@
 
 Permalist is a portmanteau of permanent + to-do list.
 This project is a permanent to-do list with data persistence.
+The user can perfrom all the basic CRUD operations across three different to-do lists.
 All the data is stored in a PostgresSQL database.
 I am connecting to the db using the pg middleware.
 
