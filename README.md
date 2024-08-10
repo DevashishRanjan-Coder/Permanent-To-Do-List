@@ -8,3 +8,5 @@ I am connecting to the db using the pg middleware.
 The logic is in js, styling is in CSS, templating engine is EJS and queries are written using SQL.
 
 !["Landing page of the app"](images/landingPage.png)
+!["Second to-do list"](images/list2.png)
+!["Third to-do list"](images/list3.png)
