@@ -7,4 +7,4 @@ I am connecting to the db using the pg middleware.
 
 The logic is in js, styling is in CSS, templating engine is EJS and queries are written using SQL.
 
-!["Landing page of the app"](images/landingpPage.png)
+!["Landing page of the app"](images/landingPage.png)
