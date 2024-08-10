@@ -6,27 +6,14 @@ const app = express();
 const port = 3000;
 
 const db = new pg.Client({
-  user: "permalist_la7y_user",
-  host: "dpg-cqquqpogph6c738fpslg-a",
-  database: "permalist_la7y",
-  password: "tngD0JUdnRpny0f6SfKcbZS5yVDG3XlT",
+  user: "postgres",
+  host: "localhost",
+  database: "permalist",
+  password: "ELEPHANT_DATABASE",
   port: 5432,
 });
 
 db.connect();
-
-db.query(`CREATE TABLE items (
-	id SERIAL PRIMARY KEY NOT NULL,
-	title VARCHAR(100) NOT NULL,
-  list_id SERIAL NOT NULL
-);`);
-
-
-db.query(`CREATE TABLE listType (
-	id SERIAL PRIMARY KEY NOT NULL,
-	type VARCHAR(20) NOT NULL
-);`);
-
 let count = 1;
 
 async function getItems(listID) {
@@ -35,7 +22,7 @@ async function getItems(listID) {
 }
 
 async function getListTitles() {
-  const titles = await db.query("SELECT * FROM list_type;")
+  const titles = await db.query("SELECT * FROM list_type")
   return titles.rows;
 }
 
